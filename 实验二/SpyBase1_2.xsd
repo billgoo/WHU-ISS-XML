@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--被XMLSpy vW3C Schema产生的2013 sp1 () (http://www.altova.com)-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sb="http://www.xml.org.cn/namespaces/SpyBase" targetNamespace="http://www.xml.org.cn/namespaces/SpyBase" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="status">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="In progress"/>
+				<xs:enumeration value="Mission Accomplished"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="spyTable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sb:row" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="spyID_key">
+			<xs:selector xpath=".//spyID"/>
+			<xs:field xpath="."/>
+		</xs:key>
+	</xs:element>
+	<xs:element name="spyREF">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="row">
+		<xs:complexType>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element ref="sb:spyREF"/>
+					<xs:choice>
+						<xs:element ref="sb:alias"/>
+						<xs:sequence>
+							<xs:element ref="sb:date"/>
+							<xs:element ref="sb:description"/>
+							<xs:element ref="sb:status"/>
+						</xs:sequence>
+					</xs:choice>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element ref="sb:firstName"/>
+					<xs:element ref="sb:lastName"/>
+				</xs:sequence>
+			</xs:choice>
+			<xs:attribute name="spyID">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A001"/>
+						<xs:enumeration value="A003"/>
+						<xs:enumeration value="A004"/>
+						<xs:enumeration value="A006"/>
+						<xs:enumeration value="A099"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="mID">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="M101"/>
+						<xs:enumeration value="M102"/>
+						<xs:enumeration value="M103"/>
+						<xs:enumeration value="M104"/>
+						<xs:enumeration value="M105"/>
+						<xs:enumeration value="M106"/>
+						<xs:enumeration value="M107"/>
+						<xs:enumeration value="M108"/>
+						<xs:enumeration value="M109"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="aID">
+				<xs:simpleType>
+					<xs:restriction base="xs:byte">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="missionTable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sb:row" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="mID_key">
+			<xs:selector xpath=".//mID"/>
+			<xs:field xpath="."/>
+		</xs:key>
+		<xs:keyref name="spyREF_keyref_2" refer="sb:spyID_key">
+			<xs:selector xpath="./spyTable/spyID"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="lastName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Devgood"/>
+				<xs:enumeration value="Feldon"/>
+				<xs:enumeration value="Lister"/>
+				<xs:enumeration value="Mause"/>
+				<xs:enumeration value="Smart"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="firstName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Barbara"/>
+				<xs:enumeration value="Danger"/>
+				<xs:enumeration value="Link"/>
+				<xs:enumeration value="Maxwell"/>
+				<xs:enumeration value="Nikki"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="description">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Crack the code"/>
+				<xs:enumeration value="Get smart"/>
+				<xs:enumeration value="Get some style"/>
+				<xs:enumeration value="Get the big cheese"/>
+				<xs:enumeration value="Get the source"/>
+				<xs:enumeration value="Hit the target"/>
+				<xs:enumeration value="Map the area"/>
+				<xs:enumeration value="Protect Chief"/>
+				<xs:enumeration value="Shoot the rapid"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="date">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="\d{4}\-([1-9]|(1[0-2]))\-\d{1,2}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="aliasTable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sb:row" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="aID_key">
+			<xs:selector xpath=".//aID"/>
+			<xs:field xpath="."/>
+		</xs:key>
+		<xs:keyref name="spyREF_keyref_1" refer="sb:spyID_key">
+			<xs:selector xpath="./spyTable/spyID"/>
+			<xs:field xpath="."/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="alias">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Big Ears"/>
+				<xs:enumeration value="Don Adams"/>
+				<xs:enumeration value="Fred"/>
+				<xs:enumeration value="Inspector Gadget"/>
+				<xs:enumeration value="LL"/>
+				<xs:enumeration value="La Femme Nikki"/>
+				<xs:enumeration value="Spy Grrrl"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SpyBase">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sb:aliasTable"/>
+				<xs:element ref="sb:missionTable"/>
+				<xs:element ref="sb:spyTable"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

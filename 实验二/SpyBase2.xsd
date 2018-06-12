@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 被2013 sp1 () 使用XMLSpy v编辑的 (http://www.altova.com) by -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="info">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="spyTable">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="row" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="firstName"/>
+										<xs:element name="lastName"/>
+										<xs:element name="aliasList" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="alias"/>
+												</xs:sequence>
+												<xs:attribute name="aID"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="missionList" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="date">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="\d{4}-([1-9]|(1[0-2]))-\d{1,2}"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="description"/>
+													<xs:element name="status"/>
+												</xs:sequence>
+												<xs:attribute name="mID"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="spyID"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

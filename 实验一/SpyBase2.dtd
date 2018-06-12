@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 被2013 sp1 () 使用XMLSpy v编辑的 (http://www.altova.com) by -->
+<!ENTITY % pc "(#PCDATA)">
+<!ENTITY % c "CDATA">
+<!ELEMENT info (spyTable)>
+<!ELEMENT spyTable (row)+>
+<!ELEMENT row (firstName, lastName, (missionList)*, (aliasList)*)>
+<!ELEMENT aliasList (alias)>
+<!ELEMENT missionList (date, description, status)>
+<!ELEMENT firstName %pc;>
+<!ELEMENT lastName %pc;>
+<!ELEMENT alias %pc;>
+<!ELEMENT date %pc;>
+<!ELEMENT description %pc;>
+<!ELEMENT status %pc;>
+<!ATTLIST row
+	spyID %c; #REQUIRED
+>
+<!ATTLIST aliasList
+	aID %c; #REQUIRED
+>
+<!ATTLIST missionList
+	mID %c; #REQUIRED
+>

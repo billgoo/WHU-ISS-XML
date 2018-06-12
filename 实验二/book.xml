@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="book.xsd">
+	<title xsi:type="titleType">TCP/IP Illustrated</title>
+	<author>XCJ</author>
+	<section>
+		<title xsi:type="titleType">1.1</title>
+		<figure width="" height="">
+			<title xsi:type="titleType">1-1.1</title>
+			<image source=""/>
+		</figure>
+	</section>
+</Book>
